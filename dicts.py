@@ -8,13 +8,12 @@ def create_inventory(items):
     """
     dicc = dict()
     
-    for key in set(items):
-        dicc[key] = items.count(key)
-            
+    for key in items:
+        if not key in dicc:
+            dicc[key] = 1
+        else:
+            dicc[key] += 1
     return dicc
-
-inventario=print(create_inventory(["coal", "wood", "wood", "diamond", "diamond", "diamond"]))
-
 
 def add_items(inventory, items):
     """Add or increment items in inventory using elements from the items `list`.
@@ -33,7 +32,6 @@ def add_items(inventory, items):
         
     
 
-inventory2 = add_items({"coal":1}, ["wood", "iron", "coal", "wood"])
 
 
 def decrement_items(inventory, items):
